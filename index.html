@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprende las Partes del Cuerpo - Vocabulario Interactivo</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #0284c7;
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+    }
+
+    p.subtitle {
+      color: #64748b;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 15px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 3px solid #bae6fd;
+      border-radius: 20px;
+      padding: 15px 10px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+      user-select: none;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.03);
+      border-color: #38bdf8;
+      background-color: #f8fafc;
+    }
+
+    .card:active {
+      transform: scale(0.95);
+    }
+
+    .emoji {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .word-en {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #0369a1;
+      display: block;
+    }
+
+    .word-es {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .footer-note {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Body Parts 🦵👁️👂</h1>
+  <p class="subtitle">¡Toca cualquier tarjeta para escuchar cómo se pronuncia en inglés!</p>
+
+  <div class="grid-container">
+    <div class="card" onclick="speak('leg')">
+      <span class="emoji">🦵</span>
+      <span class="word-en">Leg</span>
+      <span class="word-es">Pierna</span>
+    </div>
+
+    <div class="card" onclick="speak('hand')">
+      <span class="emoji">✋</span>
+      <span class="word-en">Hand</span>
+      <span class="word-es">Mano</span>
+    </div>
+
+    <div class="card" onclick="speak('foot')">
+      <span class="emoji">🦶</span>
+      <span class="word-en">Foot</span>
+      <span class="word-es">Pie (uno)</span>
+    </div>
+
+    <div class="card" onclick="speak/finger('finger')">
+      <span class="emoji">👆</span>
+      <span class="word-en">Finger</span>
+      <span class="word-es">Dedo de la mano</span>
+    </div>
+
+    <div class="card" onclick="speak('feet')">
+      <span class="emoji">🦶🦶</span>
+      <span class="word-en">Feet</span>
+      <span class="word-es">Pies (varios)</span>
+    </div>
+
+    <div class="card" onclick="speak('toe')">
+      <span class="emoji">🦶</span>
+      <span class="word-en">Toe</span>
+      <span class="word-es">Dedo del pie</span>
+    </div>
+
+    <div class="card" onclick="speak('arm')">
+      <span class="emoji">💪</span>
+      <span class="word-en">Arm</span>
+      <span class="word-es">Brazo</span>
+    </div>
+
+    <div class="card" onclick="speak('mouth')">
+      <span class="emoji">👄</span>
+      <span class="word-en">Mouth</span>
+      <span class="word-es">Boca</span>
+    </div>
+
+    <div class="card" onclick="speak('eye')">
+      <span class="emoji">👁️</span>
+      <span class="word-en">Eye</span>
+      <span class="word-es">Ojo</span>
+    </div>
+
+    <div class="card" onclick="speak('nose')">
+      <span class="emoji">👃</span>
+      <span class="word-en">Nose</span>
+      <span class="word-es">Nariz</span>
+    </div>
+
+    <div class="card" onclick="speak('ear')">
+      <span class="emoji">👂</span>
+      <span class="word-en">Ear</span>
+      <span class="word-es">Oreja / Oído</span>
+    </div>
+  </div>
+
+  <div class="footer-note">Vocabulario Interactivo para Niños 🎨</div>
+
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.85; // Velocidad suave para niños
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert("Tu navegador no soporta audio automático.");
+      }
+    }
+  </script>
+
+</body>
+</html>
